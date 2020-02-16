@@ -1,0 +1,29 @@
+{
+  "name": "helpr-css",
+  "version": "0.0.1",
+  "description": "a css framework",
+  "main": "index.sass",
+  "scripts": {
+    "build": "sass src/index.sass dist/index.css -s compressed",
+    "prepublish": "yarn build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bentatum/helpr-css.git"
+  },
+  "keywords": [
+    "css",
+    "framework",
+    "css-variables",
+    "css-theming"
+  ],
+  "author": "Ben Tatum <mail@benjtatum.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bentatum/helpr-css/issues"
+  },
+  "homepage": "https://github.com/bentatum/helpr-css#readme",
+  "devDependencies": {
+    "sass": "^1.25.0"
+  }
+}

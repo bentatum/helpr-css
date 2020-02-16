@@ -1,0 +1,19 @@
+$colors: "primary" "secondary" "grey" "white" "black" "error" "warning" "success"
+
+@each $color in $colors
+    .color--#{$color}
+        color: var(--color--#{$color})
+    .color--#{$color}-contrast-text
+        color: var(--color--#{$color}-contrast-text)
+    .bg--#{$color}
+        background-color: var(--color--#{$color})
+
+    @for $i from 1 through 5
+        .color--#{$color}--lighten-#{$i}
+            color: var(--color--#{$color}--lighten-#{$i})
+        .color--#{$color}--darken-#{$i}
+            color: var(--color--#{$color}--darken-#{$i})
+        .bg--#{$color}--lighten-#{$i}
+            background-color: var(--color--#{$color}--lighten-#{$i})
+        .bg--#{$color}--darken-#{$i}
+            background-color: var(--color--#{$color}--darken-#{$i})

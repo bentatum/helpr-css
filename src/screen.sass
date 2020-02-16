@@ -1,0 +1,66 @@
+$sizes: xs sm md lg xl
+$sizemap: (xs: 350px, sm: 750px, md: 1024px, lg: 1440px, xl: 2560px)
+
+:root
+    @each $size in $sizes
+        --screen-#{$size}: #{map-get($sizemap, $size)}
+
+@mixin screen-helper-classes($threshold, $size)
+    .d-#{$threshold}-#{$size},
+    .d-#{$threshold}-#{$size}--block
+        display: block !important
+    .d-#{$threshold}-#{$size}--inline
+        display: inline !important
+    .d-#{$threshold}-#{$size}--flex
+        display: flex !important
+    .d-#{$threshold}-#{$size}--inline-flex
+        display: inline-flex !important
+    .d-#{$threshold}-#{$size}--hidden
+        display: none !important
+
+@mixin container($m, $size)
+    --gutters: calc(var(--space) * 2)
+    margin: 0 auto
+    #{$m}-width: var(--screen-#{$size})
+    padding-left: var(--gutters)
+    padding-right: var(--gutters)
+    width: -webkit-fill-available
+
+@each $size in $sizes
+    // container
+    $mm: min max
+    @each $m in $mm
+        .container--#{$m}-#{$size}
+            @include container($m, $size)
+
+    // screen-width-helper-classes
+    $width: map-get($sizemap, $size)
+    // -- only
+    @if $size == xs
+        @media (max-width: $width)
+            @include screen-helper-classes(only, $size)
+    @else if $size == xl
+        @media (min-width: $width)
+            @include screen-helper-classes(only, $size)
+    @else if $size == sm
+        @media (min-width: $width) and (max-width: map-get($sizemap, md))
+            @include screen-helper-classes(only, $size)
+    @else if $size == md
+        @media (min-width: $width) and (max-width: map-get($sizemap, lg))
+            @include screen-helper-classes(only, $size)
+    @else if $size == lg
+        @media (min-width: $width) and (max-width: map-get($sizemap, xl))
+            @include screen-helper-classes(only, $size)
+    // -- above
+    @media (min-width: $width)
+        @include screen-helper-classes(above, $size)
+    // -- below
+    @media (max-width: $width)
+        @include screen-helper-classes(below, $size)
+
+.d-none
+    display: none
+
+.container
+     @include container(max, lg)
+
