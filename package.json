@@ -1,8 +1,9 @@
 {
   "name": "helpr-css",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "a css framework",
-  "main": "index.sass",
+  "main": "src/index.sass",
+  "files": ["dist"],
   "scripts": {
     "build": "sass src/index.sass dist/index.css -s compressed",
     "prepublish": "yarn build"
