@@ -1,0 +1,32 @@
+$alignments: start center end
+$align-types: justify align
+
+.flex
+    display: flex
+    flex-direction: column
+
+.flex.column
+    flex-direction: column
+
+.flex.row
+    flex-direction: row
+
+.flex-nowrap
+    display: flex
+    flex-wrap: nowrap
+
+@each $a in $alignments
+    .align-items--#{$a}
+        @if $a == start or $a == end
+            @extend .flex
+            align-items: flex-#{$a}
+        @else
+            @extend .flex
+            align-items: $a
+    .justify-content--#{$a}
+        @if $a == start or $a == end
+            @extend .flex
+            justify-content: flex-#{$a}
+        @else
+            @extend .flex
+            justify-content: $a

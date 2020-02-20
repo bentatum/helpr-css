@@ -1,9 +1,5 @@
-$sizes: xs sm md lg xl
-$sizemap: (xs: 350px, sm: 750px, md: 1024px, lg: 1440px, xl: 2560px)
-
-:root
-    @each $size in $sizes
-        --screen-#{$size}: #{map-get($sizemap, $size)}
+@use '../vars' as vars
+@use 'sass:map'
 
 @mixin screen-helper-classes($threshold, $size)
     .d-#{$threshold}-#{$size},
@@ -26,7 +22,7 @@ $sizemap: (xs: 350px, sm: 750px, md: 1024px, lg: 1440px, xl: 2560px)
     padding-right: var(--gutters)
     width: -webkit-fill-available
 
-@each $size in $sizes
+@each $size in map.keys(vars.$screen-sizes)
     // container
     $mm: min max
     @each $m in $mm
@@ -34,7 +30,7 @@ $sizemap: (xs: 350px, sm: 750px, md: 1024px, lg: 1440px, xl: 2560px)
             @include container($m, $size)
 
     // screen-width-helper-classes
-    $width: map-get($sizemap, $size)
+    $width: map.get(vars.$screen-sizes, $size)
     // -- only
     @if $size == xs
         @media (max-width: $width)
@@ -43,13 +39,13 @@ $sizemap: (xs: 350px, sm: 750px, md: 1024px, lg: 1440px, xl: 2560px)
         @media (min-width: $width)
             @include screen-helper-classes(only, $size)
     @else if $size == sm
-        @media (min-width: $width) and (max-width: map-get($sizemap, md))
+        @media (min-width: $width) and (max-width: map.get(vars.$screen-sizes, md))
             @include screen-helper-classes(only, $size)
     @else if $size == md
-        @media (min-width: $width) and (max-width: map-get($sizemap, lg))
+        @media (min-width: $width) and (max-width: map.get(vars.$screen-sizes, lg))
             @include screen-helper-classes(only, $size)
     @else if $size == lg
-        @media (min-width: $width) and (max-width: map-get($sizemap, xl))
+        @media (min-width: $width) and (max-width: map.get(vars.$screen-sizes, xl))
             @include screen-helper-classes(only, $size)
     // -- above
     @media (min-width: $width)

@@ -1,0 +1,13 @@
+@use '../vars' as vars
+@use "sass:map"
+@use "sass:color"
+
+:root
+    @each $color in map.keys(vars.$colors)
+        --color--#{$color}: #{map.get(vars.$colors, $color)}
+        @for $i from 1 through 5
+            --color--#{$color}--darken-#{$i}: #{color.scale(map.get(vars.$colors, $color), $lightness: $i * -10%)}
+        @for $i from 1 through 5
+            --color--#{$color}--lighten-#{$i}: #{color.scale(map.get(vars.$colors, $color), $lightness: $i * 10%)}
+        @for $i from 1 through 5
+            --color--#{$color}--alpha-#{$i}: #{color.adjust(map.get(vars.$colors, $color), $alpha: $i * -0.2)}

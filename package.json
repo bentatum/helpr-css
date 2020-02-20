@@ -1,12 +1,18 @@
 {
   "name": "helpr-css",
-  "version": "0.0.2",
-  "description": "a css framework",
+  "version": "0.0.5",
+  "description": "a simple css framework",
   "main": "src/index.sass",
-  "files": ["dist"],
+  "files": [
+    "/uncompressed",
+    "/*.css",
+    "/*.css.map"
+  ],
   "scripts": {
-    "build": "sass src/index.sass dist/index.css -s compressed",
-    "prepublish": "yarn build"
+    "build": ". scripts/build.sh",
+    "prepublish": "yarn build",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
@@ -14,9 +20,8 @@
   },
   "keywords": [
     "css",
-    "framework",
-    "css-variables",
-    "css-theming"
+    "helper classes",
+    "css variable boilerplate"
   ],
   "author": "Ben Tatum <mail@benjtatum.com>",
   "license": "ISC",
@@ -25,6 +30,11 @@
   },
   "homepage": "https://github.com/bentatum/helpr-css#readme",
   "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@storybook/addon-knobs": "^5.3.13",
+    "@storybook/addon-storysource": "^5.3.13",
+    "@storybook/html": "^5.3.13",
+    "babel-loader": "^8.0.6",
     "sass": "^1.25.0"
   }
 }

@@ -1,0 +1,10 @@
+@use '../vars' as vars
+
+.border
+    border: var(--border-size) var(--border-style) var(--border-color)
+    @each $bs in vars.$border-styles
+        &--#{$bs}
+            border-style: $bs
+
+.rounded
+    border-radius: var(--border-radius)

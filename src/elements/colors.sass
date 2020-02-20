@@ -1,0 +1,41 @@
+@use "sass:color"
+@use "sass:map"
+@use "../vars" as vars
+
+.bg--body
+    background-color: var(--body-bg)
+
+.bg--alt,
+.bg--alternate
+    background-color: var(--alt-bg)
+
+@mixin color-modifiers($property, $color, $i)
+    &--lighten-#{$i}
+        #{$property}: var(--color--#{$color}--lighten-#{$i})
+    &--darken-#{$i}
+        #{$property}: var(--color--#{$color}--darken-#{$i})
+    &--alpha-#{$i}
+        #{$property}: var(--color--#{$color}--alpha-#{$i})
+
+@each $color in map.keys(vars.$colors)
+    .color--#{$color}
+        color: var(--color--#{$color})
+        &--contrast
+            color: var(--color--#{$color}--contrast)
+    .bg--#{$color}
+        background-color: var(--color--#{$color})
+        &--contrast
+            background-color: var(--color--#{$color}--contrast)
+    .border-color--#{$color}
+        border-color: var(--color--#{$color})
+
+    @for $i from 1 through 5
+        .color--#{$color}
+            @include color-modifiers(color, $color, $i)
+        .bg--#{$color}
+            @include color-modifiers(background-color, $color, $i)
+        .border-color--#{$color}
+            &--lighten-#{$i}
+                border-color: var(--color--#{$color}--lighten-#{$i})
+            &--darken-#{$i}
+                border-color: var(--color--#{$color}--darken-#{$i})

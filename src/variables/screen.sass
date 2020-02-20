@@ -1,0 +1,6 @@
+@use 'sass:map'
+@use '../vars' as vars
+
+:root
+    @each $size in map.keys(vars.$screen-sizes)
+        --screen-#{$size}: #{map.get(vars.$screen-sizes, $size)}
