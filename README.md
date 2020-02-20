@@ -10,7 +10,7 @@ It's a set of helpful css classes for layout, spacing, colors, etc.
 
 ## Setup (fast)
 ```
-<link rel="stylesheet" href="https://unpkg.com/helpr-css@0.0.5/kitchen-sink.css">
+<link rel="stylesheet" href="https://unpkg.com/helpr-css@0.0.6/kitchen-sink.css">
 ```
 
 ## Docs
