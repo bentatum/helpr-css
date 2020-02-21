@@ -12,6 +12,10 @@
         @return var(--color--black)
 
 :root
+    --bg--main: #{vars.$colors_bg_main}
+    --bg--alt: #{vars.$colors_bg_alt}
+    --bg--backdrop: #{vars.$colors_bg_backdrop}
+
     @each $color in map.keys(vars.$colors)
         --color--#{$color}: #{map.get(vars.$colors, $color)}
         --color--#{$color}--contrast: #{get-contrast-color(map.get(vars.$colors, $color))}

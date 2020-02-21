@@ -2,12 +2,16 @@
 @use "sass:map"
 @use "../vars" as vars
 
-.bg--body
-    background-color: var(--body-bg)
+.bg--main,
+.bg--body // deprecate?
+    background-color: var(--bg--main)
 
 .bg--alt,
 .bg--alternate
-    background-color: var(--alt-bg)
+    background-color: var(--bg--alt)
+
+.bg--backdrop
+    background-color: var(--bg--backdrop)
 
 @mixin color-modifiers($property, $color, $i)
     &--lighten-#{$i}

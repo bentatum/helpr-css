@@ -3,7 +3,6 @@ $align-types: justify align
 
 .flex
     display: flex
-    flex-direction: column
 
 .flex.column
     flex-direction: column
@@ -11,8 +10,7 @@ $align-types: justify align
 .flex.row
     flex-direction: row
 
-.flex-nowrap
-    display: flex
+.flex.nowrap
     flex-wrap: nowrap
 
 @each $a in $alignments
