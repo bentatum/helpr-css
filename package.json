@@ -1,6 +1,6 @@
 {
   "name": "helpr-css",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "a simple css framework",
   "main": "src/index.sass",
   "files": [

@@ -13,6 +13,10 @@ $align-types: justify align
 .flex.nowrap
     flex-wrap: nowrap
 
+.flex.center
+    align-items: center
+    justify-content: center
+
 @each $a in $alignments
     .align-items--#{$a}
         @if $a == start or $a == end
