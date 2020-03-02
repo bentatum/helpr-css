@@ -10,14 +10,14 @@ It's a set of helpful css classes for layout, spacing, colors, etc.
 
 ## Setup (fast)
 ```
-<link rel="stylesheet" href="https://unpkg.com/helpr-css@0.0.9/kitchen-sink.css">
+<link rel="stylesheet" href="https://unpkg.com/helpr-css@0.0.10/kitchen-sink.css">
 ```
 
 ## Import individual components
 ```
-<link rel="stylesheet" href="https://unpkg.com/helpr-css@0.0.9/color.css">
-<link rel="stylesheet" href="https://unpkg.com/helpr-css@0.0.9/flexbox.css">
-<link rel="stylesheet" href="https://unpkg.com/helpr-css@0.0.9/grid.css">
+<link rel="stylesheet" href="https://unpkg.com/helpr-css@0.0.10/color.css">
+<link rel="stylesheet" href="https://unpkg.com/helpr-css@0.0.10/flexbox.css">
+<link rel="stylesheet" href="https://unpkg.com/helpr-css@0.0.10/grid.css">
 ```
 
 ## Docs
