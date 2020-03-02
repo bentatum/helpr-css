@@ -1,14 +1,8 @@
 html
     font-size: 62.5% // 10px = 1rem
 
-a,
-a:hover,
-a:visited
-    color: var(--link-color)
-
 body
     font: caption
-    color: var(--text-color)
     font-size: 16px
     font-size: 1.6rem
     line-height: 1.5
@@ -20,12 +14,12 @@ h1, h2, h3, h4, h5, h6, p
 h1, .h1
     font-weight: var(--font-weight--heavy)
     font-size: 3rem
-    line-height: 1.2
+    line-height: 1.8
 
 h2, .h2
     font-weight: var(--font-weight--regular)
     font-size: 2.3rem
-    line-height: 1.8
+    line-height: 1.6
 
 h3, .h3
     font-weight: var(--font-weight--heavy)
@@ -60,17 +54,21 @@ body, p, .body1
     letter-spacing: 0.00938em
 
 .gutter-bottom
-    margin-bottom: 0.5em
+    margin-bottom: 0.8em
 
-.text-align--center
+.text-center
     text-align: center
-.text-align--right
+.text-right
     text-align: right
-.text-align--left
+.text-left
     text-align: left
 
 .nowrap
     white-space: nowrap
+.nowrap--ellipsis
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
 
 .underline
     text-decoration: underline

@@ -12,9 +12,13 @@
         @return var(--color--black)
 
 :root
-    --bg--main: #{vars.$colors_bg_main}
-    --bg--alt: #{vars.$colors_bg_alt}
-    --bg--backdrop: #{vars.$colors_bg_backdrop}
+    --bg--main: var(--color--white)
+    --bg--alt: var(--color--white--darken-1)
+    --bg--backdrop: var(--color--black--alpha-3)
+
+    --color--text: var(--color--black--lighten-1)
+    --color--text--secondary: var(--color--black--lighten-4)
+    --color--links: var(--color--primary)
 
     @each $color in map.keys(vars.$colors)
         --color--#{$color}: #{map.get(vars.$colors, $color)}
@@ -25,3 +29,10 @@
             --color--#{$color}--lighten-#{$i}: #{color.scale(map.get(vars.$colors, $color), $lightness: $i * 10%)}
         @for $i from 1 through 5
             --color--#{$color}--alpha-#{$i}: #{color.adjust(map.get(vars.$colors, $color), $alpha: $i * -0.2)}
+
+@media (prefers-color-scheme: dark)
+    :root
+        --bg--main: var(--color--black--lighten-1)
+        --bg--alt: var(--color--black--lighten-2)
+        --color--text: var(--color--white--darken-1)
+        --color--text--secondary: var(--color--white--darken-4)

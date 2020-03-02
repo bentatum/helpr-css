@@ -1,4 +1,5 @@
 $alignments: start center end
+$justifications: space-between space-around
 $align-types: justify align
 
 .flex
@@ -17,6 +18,11 @@ $align-types: justify align
     align-items: center
     justify-content: center
 
+.flex.start
+    justify-content: flex-start
+.flex.end
+    justify-content: flex-end
+
 @each $a in $alignments
     .align-items--#{$a}
         @if $a == start or $a == end
@@ -32,3 +38,8 @@ $align-types: justify align
         @else
             @extend .flex
             justify-content: $a
+
+@each $j in $justifications
+    .justify-content--#{$j}
+        @extend .flex
+        justify-content: $j

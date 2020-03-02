@@ -1,6 +1,6 @@
 {
   "name": "helpr-css",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "a simple css framework",
   "main": "src/index.sass",
   "files": [
@@ -9,7 +9,7 @@
     "/*.css.map"
   ],
   "scripts": {
-    "build": ". scripts/build.sh",
+  "build": ". scripts/build.sh",
     "prepublish": "yarn build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"

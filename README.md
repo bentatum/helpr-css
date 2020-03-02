@@ -10,10 +10,45 @@ It's a set of helpful css classes for layout, spacing, colors, etc.
 
 ## Setup (fast)
 ```
-<link rel="stylesheet" href="https://unpkg.com/helpr-css@0.0.6/kitchen-sink.css">
+<link rel="stylesheet" href="https://unpkg.com/helpr-css@0.0.9/kitchen-sink.css">
+```
+
+## Import individual components
+```
+<link rel="stylesheet" href="https://unpkg.com/helpr-css@0.0.9/color.css">
+<link rel="stylesheet" href="https://unpkg.com/helpr-css@0.0.9/flexbox.css">
+<link rel="stylesheet" href="https://unpkg.com/helpr-css@0.0.9/grid.css">
 ```
 
 ## Docs
+
+### Borders
+Put a border on it.
+```html
+<div class="border p1">
+    Borders can be nice sometimes.
+</div>
+```
+
+### Colors
+```html
+<h1 class="color--primary">
+    Greetings!
+</h1>
+<p class="color--secondary">
+    We're here to help you style your things.
+</p>
+
+<div class="color--success">
+    Do that.
+</div>
+<div class="color--warning">
+    Maybe don't do that.
+</div>
+<div class="color--error">
+    Definetly don't do that.
+</div>
+```
 
 ### Grid
 Here's a simple row of cells with some grid-gap.
@@ -37,7 +72,7 @@ A quick column is just as easy.
 ### Flexbox
 
 ```html
-<div class="row align-center">
-    <div></div>
+<div class="flex center vh100 vw100">
+    <div>It feels good to be centered.</div>
 </div>
 ```

@@ -2,14 +2,10 @@
 @use "sass:map"
 @use "../vars" as vars
 
-.bg--main,
-.bg--body // deprecate?
+.bg--main
     background-color: var(--bg--main)
-
-.bg--alt,
-.bg--alternate
+.bg--alt
     background-color: var(--bg--alt)
-
 .bg--backdrop
     background-color: var(--bg--backdrop)
 
@@ -28,8 +24,10 @@
             color: var(--color--#{$color}--contrast)
     .bg--#{$color}
         background-color: var(--color--#{$color})
+        color: var(--color--#{$color}--contrast)
         &--contrast
             background-color: var(--color--#{$color}--contrast)
+            color: var(--color--#{$color})
     .border-color--#{$color}
         border-color: var(--color--#{$color})
 
@@ -43,3 +41,12 @@
                 border-color: var(--color--#{$color}--lighten-#{$i})
             &--darken-#{$i}
                 border-color: var(--color--#{$color}--darken-#{$i})
+
+body
+    color: var(--color--text)
+    background-color: var(--bg--main)
+
+a,
+a:hover,
+a:visited
+    color: var(--color--links)
