@@ -1,4 +1,5 @@
 @use "sass:map"
+@use "../vars" as vars
 
 $dirs: null t b l r x y
 
@@ -8,7 +9,7 @@ $dirmap: (t: top, b: bottom, l: left, r: right)
 // spacing classes
 @each $mp in map.keys($mpx)
     @each $dir in $dirs
-        @for $i from 1 through 25
+        @for $i from 1 through vars.$space-amount
             @if $dir
                 .#{$mp}#{$dir}#{$i}
                     @if $dir == x

@@ -1,4 +1,6 @@
-@for $i from 1 through 25
+@use '../vars' as vars
+
+@for $i from 1 through vars.$shadow-amount
     .shadow--#{$i}
         box-shadow: var(--shadow-#{$i})
 

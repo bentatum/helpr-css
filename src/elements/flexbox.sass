@@ -5,22 +5,33 @@ $align-types: justify align
 .flex
     display: flex
 
-.flex.column
+.inline-flex
+    display: inline-flex
+
+.flex.col,
+.flex.column,
+.inline-flex.col,
+.inline-flex.column
     flex-direction: column
 
-.flex.row
+.flex.row,
+.inline-flex.row
     flex-direction: row
 
-.flex.nowrap
+.flex.nowrap,
+.inline-flex.nowrap
     flex-wrap: nowrap
 
-.flex.center
+.flex.center,
+.inline-flex.center
     align-items: center
     justify-content: center
 
-.flex.start
+.flex.start,
+.inline-flex.start
     justify-content: flex-start
-.flex.end
+.flex.end,
+.inline-flex.end
     justify-content: flex-end
 
 @each $a in $alignments

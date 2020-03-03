@@ -1,10 +1,11 @@
+@use '../vars' as vars
+
 :root
     --shadow-umbra: rgba(0, 0, 0, 0.1)
     --shadow-penumbra: rgba(0, 0, 0, 0.1)
     --shadow-ambient: rgba(0, 0, 0, 0.05)
 
-    @for $i from 1 through 25
+    @for $i from 1 through vars.$shadow-amount
         --shadow-#{$i}: 0 0 #{$i * 1.5}px 0 var(--shadow-umbra), 0 #{$i}px #{$i}px 0 var(--shadow-penumbra), 0 #{$i * 2}px #{$i}px #{$i * 0.2}px var(--shadow-ambient)
 
-    // shortcut
     --shadow: var(--shadow-1)

@@ -9,13 +9,28 @@
 .bg--backdrop
     background-color: var(--bg--backdrop)
 
-@mixin color-modifiers($property, $color, $i)
-    &--lighten-#{$i}
-        #{$property}: var(--color--#{$color}--lighten-#{$i})
-    &--darken-#{$i}
-        #{$property}: var(--color--#{$color}--darken-#{$i})
-    &--alpha-#{$i}
-        #{$property}: var(--color--#{$color}--alpha-#{$i})
+.color--text
+    color: var(--color--text)
+.color--text--secondary
+    color: var(--color--text--secondary)
+
+$transition-duration: 250ms
+
+@mixin color-modifiers($property, $color, $i, $selector: false)
+    @each $mod in lighten, darken, alpha
+        &--#{$mod}-#{$i}#{if($selector, ':#{$selector}', '')}
+            @if $property == background-color
+                background-color: var(--color--#{$color}--#{$mod}-#{$i})
+                @if $mod != alpha
+                    color: var(--color--#{$color}--contrast) !important
+                @if $selector
+                    transition-property: background-color, color
+                    transition-duration: $transition-duration
+                    transition-timing-function: ease-in-out
+            @else
+                #{$property}: var(--color--#{$color}--#{$mod}-#{$i})
+                @if $selector
+                    transition: #{$property} $transition-duration ease-in-out
 
 @each $color in map.keys(vars.$colors)
     .color--#{$color}
@@ -24,18 +39,32 @@
             color: var(--color--#{$color}--contrast)
     .bg--#{$color}
         background-color: var(--color--#{$color})
-        color: var(--color--#{$color}--contrast)
+        color: var(--color--#{$color}--contrast) !important
         &--contrast
             background-color: var(--color--#{$color}--contrast)
-            color: var(--color--#{$color})
+            color: var(--color--#{$color}) !important
+    .bg-hover--#{$color}:hover
+        background-color: var(--color--#{$color})
+        color: var(--color--#{$color}--contrast) !important
+        transition: background-color $transition-duration ease-in-out
+    .bg-hover--#{$color}--contrast:hover
+        background-color: var(--color--#{$color}--contrast)
+        color: var(--color--#{$color}) !important
+        transition: background-color $transition-duration ease-in-out
     .border-color--#{$color}
         border-color: var(--color--#{$color})
 
-    @for $i from 1 through 5
+    @for $i from 1 through vars.$color-range
         .color--#{$color}
             @include color-modifiers(color, $color, $i)
+        .color-hover--#{$color}
+            @include color-modifiers(color, $color, $i, hover)
+            transition: color $transition-duration ease-in-out
         .bg--#{$color}
             @include color-modifiers(background-color, $color, $i)
+        .bg-hover--#{$color}
+            @include color-modifiers(background-color, $color, $i, hover)
+            transition: background-color $transition-duration ease-in-out
         .border-color--#{$color}
             &--lighten-#{$i}
                 border-color: var(--color--#{$color}--lighten-#{$i})
