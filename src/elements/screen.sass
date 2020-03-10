@@ -15,11 +15,10 @@
         display: none !important
 
 @mixin container($m, $size)
-    --gutters: calc(var(--space) * 2)
     margin: 0 auto
     #{$m}-width: var(--screen-#{$size})
-    padding-left: var(--gutters)
-    padding-right: var(--gutters)
+    padding-left: var(--container--gutter)
+    padding-right: var(--container--gutter)
     width: -webkit-fill-available
 
 @each $size in map.keys(vars.$screen-sizes)
@@ -57,6 +56,8 @@
 .d-none
     display: none
 
+.container
+    --container--gutter: calc(var(--space) * 2)
 .container
      @include container(max, lg)
 

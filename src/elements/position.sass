@@ -1,0 +1,7 @@
+.sticky
+    position: sticky
+
+@each $dir in top, right, bottom, left
+    .sticky--#{$dir}
+        @extend .sticky
+        #{$dir}: 0
