@@ -11,19 +11,42 @@
       rel="stylesheet"
       href="https://unpkg.com/helpr-css@1.0.1/default.min.css"
     /> -->
-    <link
-      rel="stylesheet"
-      href="./default.css"
-    />
+    <link rel="stylesheet" href="./default.css" />
 
     <script src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
 
     <script>
       hljs.initHighlightingOnLoad();
+
+      let drawerOpen = false;
+
+      function onDrawerMenuClick() {
+        drawerOpen = true;
+        document.getElementById("hamburger-menu").style.left = 0;
+        document.getElementById("hamburger-menu__backdrop").style.display =
+          "block";
+      }
+
+      function onBackdropClick() {
+        drawerOpen = false;
+        console.log(document.getElementsByClassName('.drawer')[0])
+        // const drawerWidth = getComputedStyle(
+          
+        // ).getPropertyValue("--width");
+        // console.log(drawerWidth);
+        // document.getElementById("hamburger-menu").style.left = -1 * drawerWidth;
+        document.getElementById("hamburger-menu__backdrop").style.display =
+          "none";
+      }
     </script>
 
     <style>
+      :root {
+        --font-weight--heavy: 900;
+
+        --drawer--width: 200px;
+      }
 
       .hljs-string {
         color: var(--color--primary);
@@ -32,13 +55,14 @@
         --size: 30px;
       }
       .icon-button {
+        padding: calc(var(--space) / 2);
         height: var(--size);
         width: var(--size);
         display: inline-flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        font-size: 2rem;
+        font-size: 2.3rem;
         border: 0;
         outline: none;
         box-sizing: content-box;
@@ -63,32 +87,61 @@
       }
 
       .drawer {
-        --width: 200px;
+        --width: 300px;
       }
       .drawer {
+        height: 100vh;
         width: var(--width);
         position: absolute;
         left: calc(var(--width) * -1);
+        top: 0;
+      }
+      .drawer__backdrop {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: none;
+      }
+
+      header {
+        min-height: 50px;
+      }
+      .icon-button--hamburger {
+        margin-right: calc(var(--space) / 2);
       }
     </style>
   </head>
   <body>
-    <header class="sticky--top px2 color--primary shadow flex row">
+    <header
+      class="bg--alt sticky--top px2 color--primary shadow flex row align-items--center"
+    >
       <div class="flex center">
-        <button class="icon-button color--primary bg-hover--primary--alpha-4">
+        <button
+          onclick="onDrawerMenuClick()"
+          class="icon-button icon-button--hamburger color--primary bg-hover--primary--alpha-4"
+        >
           <svg viewBox="0 0 24 24">
             <path
-              d="M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4Z"
+              d="M2,16H22V18C22,19.11 21.11,20 20,20H4C2.89,20 2,19.11 2,18V16M6,4H18C20.22,4 22,5.78 22,8V10H2V8C2,5.78 3.78,4 6,4M4,11H15L17,13L19,11H20C21.11,11 22,11.89 22,13C22,14.11 21.11,15 20,15H4C2.89,15 2,14.11 2,13C2,11.89 2.89,11 4,11Z"
             />
           </svg>
         </button>
       </div>
-      <h1>helpr</h1>
+      <h1 class="h3">helpr</h1>
       <!-- <div style="flex:1;"></div> -->
     </header>
 
-    <main style="height: 500vh;">
-      <div class="drawer">
+    <main>
+      <div
+        id="hamburger-menu__backdrop"
+        onclick="onBackdropClick()"
+        class="drawer__backdrop bg--black--alpha-2"
+      ></div>
+      <div class="drawer bg--main" id="hamburger-menu">
         <nav>
           <ul>
             <li>
