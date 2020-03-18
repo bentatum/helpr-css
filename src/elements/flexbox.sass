@@ -8,31 +8,25 @@ $align-types: justify align
 .inline-flex
     display: inline-flex
 
-.flex.col,
-.flex.column,
-.inline-flex.col,
-.inline-flex.column
-    flex-direction: column
+.flex, .inline-flex
+    &.col, &.column
+        flex-direction: column
+        &.reverse
+            flex-direction: column-reverse
+    &.row
+        flex-direction: row
+        &.reverse
+            flex-direction: row-reverse
+    &.nowrap
+        flex-wrap: nowrap
+    &.center
+        align-items: center
+        justify-content: center
+    &.start
+        justify-content: flex-start
+    &.end
+        justify-content: flex-end
 
-.flex.row,
-.inline-flex.row
-    flex-direction: row
-
-.flex.nowrap,
-.inline-flex.nowrap
-    flex-wrap: nowrap
-
-.flex.center,
-.inline-flex.center
-    align-items: center
-    justify-content: center
-
-.flex.start,
-.inline-flex.start
-    justify-content: flex-start
-.flex.end,
-.inline-flex.end
-    justify-content: flex-end
 
 @each $a in $alignments
     .align-items--#{$a}
