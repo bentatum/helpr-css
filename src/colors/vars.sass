@@ -1,0 +1,38 @@
+@use '../config' as config
+@use "sass:map"
+@use "sass:color"
+@use "sass:math"
+
+@function get-contrast-color($n)
+    $color-brightness: math.round((color.red($n) * 299) + (color.green($n) * 587) + (color.blue($n) * 114) / 1000)
+    $light-color: math.round((color.red(#ffffff) * 299) + (color.green(#ffffff) * 587) + (color.blue(#ffffff) * 114) / 1000)
+    @if math.abs($color-brightness) < ($light-color/2)
+        @return var(--color--white)
+    @else
+        @return var(--color--black)
+
+:root
+    --bg--main: var(--color--white)
+    --bg--alt: var(--color--white--darken-1)
+    --bg--backdrop: var(--color--black--alpha-3)
+
+    --color--text: var(--color--black--lighten-1)
+    --color--text--secondary: var(--color--black--lighten-4)
+    --color--links: var(--color--primary)
+
+    @each $color in map.keys(config.$colors)
+        --color--#{$color}: #{map.get(config.$colors, $color)}
+        --color--#{$color}--contrast: #{get-contrast-color(map.get(config.$colors, $color))}
+        @for $i from 1 through 5
+            --color--#{$color}--darken-#{$i}: #{color.scale(map.get(config.$colors, $color), $lightness: $i * -10%)}
+        @for $i from 1 through 5
+            --color--#{$color}--lighten-#{$i}: #{color.scale(map.get(config.$colors, $color), $lightness: $i * 10%)}
+        @for $i from 1 through 5
+            --color--#{$color}--alpha-#{$i}: #{color.adjust(map.get(config.$colors, $color), $alpha: $i * -0.2)}
+
+@media (prefers-color-scheme: dark)
+    :root
+        --bg--main: var(--color--black--lighten-1)
+        --bg--alt: var(--color--black--lighten-2)
+        --color--text: var(--color--white--darken-1)
+        --color--text--secondary: var(--color--white--darken-4)

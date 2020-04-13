@@ -1,0 +1,8 @@
+@use '../config' as config
+
+@for $i from 1 through config.$shadow-amount
+    .shadow--#{$i}
+        box-shadow: var(--shadow-#{$i})
+
+.shadow
+    box-shadow: var(--shadow)

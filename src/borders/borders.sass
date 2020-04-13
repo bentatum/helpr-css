@@ -1,0 +1,18 @@
+@use '../config' as config
+
+$dirs: top, right, bottom, left
+
+.border
+    border: var(--border)
+    @each $bs in config.$border-styles
+        &--#{$bs}
+            border: var(--border)
+            border-style: $bs
+
+@each $dir in $dirs
+    .border-#{$dir}
+        border-#{$dir}: var(--border)
+        @each $bs in config.$border-styles
+            &--#{$bs}
+                border-#{$dir}: var(--border)
+                border-style-#{dir}: $bs

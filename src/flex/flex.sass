@@ -1,0 +1,56 @@
+$alignments: start center end
+$justifications: space-between space-around
+$align-types: justify align
+
+.flex
+    display: flex
+
+.inline-flex
+    display: inline-flex
+
+.flex, .inline-flex
+    &.col, &.column
+        flex-direction: column
+        &.reverse
+            flex-direction: column-reverse
+    &.row
+        flex-direction: row
+        &.reverse
+            flex-direction: row-reverse
+    &.nowrap
+        flex-wrap: nowrap
+    &.center
+        align-items: center
+        justify-content: center
+    &.start
+        justify-content: flex-start
+    &.end
+        justify-content: flex-end
+    &.space-between
+        justify-content: space-between
+    &.space-around
+        justify-content: space-around
+    &.space-evenly
+        justify-content: space-evenly
+
+
+@each $a in $alignments
+    .align-items--#{$a}
+        @if $a == start or $a == end
+            @extend .flex
+            align-items: flex-#{$a}
+        @else
+            @extend .flex
+            align-items: $a
+    .justify-content--#{$a}
+        @if $a == start or $a == end
+            @extend .flex
+            justify-content: flex-#{$a}
+        @else
+            @extend .flex
+            justify-content: $a
+
+@each $j in $justifications
+    .justify-content--#{$j}
+        @extend .flex
+        justify-content: $j

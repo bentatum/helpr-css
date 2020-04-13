@@ -1,8 +1,0 @@
-@use '../vars' as vars
-
-@for $i from 1 through vars.$shadow-amount
-    .shadow--#{$i}
-        box-shadow: var(--shadow-#{$i})
-
-.shadow
-    box-shadow: var(--shadow)

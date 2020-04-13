@@ -1,11 +1,13 @@
 {
   "name": "helpr-css",
-  "version": "1.3.1",
+  "version": "2.0.0",
   "description": "a simple css framework",
   "main": "src/index.sass",
   "files": [
-    "/*.css",
-    "/*.css.map"
+    "/dist/*.css",
+    "/dist/*.css.map",
+    "/dist/**/*.css",
+    "/dist/**/*.css.map"
   ],
   "scripts": {
   "build": ". scripts/build.sh",

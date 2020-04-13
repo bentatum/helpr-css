@@ -1,0 +1,6 @@
+@use 'sass:map'
+@use '../config' as config
+
+:root
+    @each $size in map.keys(config.$screen-sizes)
+        --screen-#{$size}: #{map.get(config.$screen-sizes, $size)}

@@ -4,50 +4,102 @@
 It's a set of helpful css classes for layout, spacing, colors, etc.
 
 ## How do I use it?
-<div class="p2 mb2 align-center justify-center shadow--4 color--primary">
-    Hey!
+<div class="v100 w100 flex center">
+    <h1>Hello World</h1>
 </div>
 
 ## Setup (fast)
 ```
-<link rel="stylesheet" href="https://unpkg.com/helpr-css@1.0.0/default.min.css">
+<link rel="stylesheet" href="https://unpkg.com/helpr-css@2.0.0/dist/default.min.css">
 ```
 
-## Import individual components
+## Setup (advanced)
 ```
-<link rel="stylesheet" href="https://unpkg.com/helpr-css@1.0.0/color.min.css">
-<link rel="stylesheet" href="https://unpkg.com/helpr-css@1.0.0/flexbox.min.css">
-<link rel="stylesheet" href="https://unpkg.com/helpr-css@1.0.0/grid.min.css">
+<link rel="stylesheet" href="https://unpkg.com/helpr-css@2.0.0/dist/color.min.css">
+<link rel="stylesheet" href="https://unpkg.com/helpr-css@2.0.0/dist/flex.min.css">
+<link rel="stylesheet" href="https://unpkg.com/helpr-css@2.0.0/dist/grid.min.css">
 ```
 
 ## Docs
 
 ### Borders
-Put a border on it.
+```css
+--border-size: 1px
+--border-style: solid
+--border-color: var(--color--grey--lighten-2)
+--border: var(--border-size) var(--border-style) var(--border-color)
+```
 ```html
-<div class="border p1">
-    Borders can be nice sometimes.
-</div>
+<div class="border">
+<div class="border-top">
+<div class="border-right">
+<div class="border-bottom">
+<div class="border-left">
 ```
 
 ### Colors
-```html
-<h1 class="color--primary">
-    Greetings!
-</h1>
-<p class="color--secondary">
-    We're here to help you style your things.
-</p>
+There ~ 100 color variables, see all (link to colors/README.md).
 
-<div class="color--success">
-    Do that.
+```css
+--color--primary: dodgerblue;
+--color--primary--contrast: var(--color--white);
+--color--primary--darken-1: #0282ff;
+--color--primary--darken-2: #0074e4;
+--color--primary--darken-3: #0065c8;
+--color--primary--darken-4: #0057ab;
+--color--primary--darken-5: #00488f;
+--color--primary--lighten-1: #359bff;
+--color--primary--lighten-2: #4ba6ff;
+--color--primary--lighten-3: #62b1ff;
+--color--primary--lighten-4: #78bcff;
+--color--primary--lighten-5: #8fc8ff;
+
+--color--text: var(--color--black--lighten-1)
+--color--text--secondary: var(--color--black--lighten-4)
+--color--links: var(--color--primary)
+
+--bg--main: var(--color--white)
+--bg--alt: var(--color--white--darken-1)
+--bg--backdrop: var(--color--black--alpha-3)
+```
+Below are templates for all background-color and text color classes. Color names are `primary, secondary, success, warning, error, grey, white, black`.
+```html
+<div class="{bg|color}--{name}">
+<div class="{bg|color}--{name}--lighten-1">
+<div class="{bg|color}--{name}--lighten-2">
+<div class="{bg|color}--{name}--lighten-3">
+<div class="{bg|color}--{name}--lighten-4">
+<div class="{bg|color}--{name}--lighten-5">
+<div class="{bg|color}--{name}--darken-1">
+<div class="{bg|color}--{name}--darken-2">
+<div class="{bg|color}--{name}--darken-3">
+<div class="{bg|color}--{name}--darken-4">
+<div class="{bg|color}--{name}--darken-5">
+<div class="{bg|color}--{name}--alpha-1">
+<div class="{bg|color}--{name}--alpha-2">
+<div class="{bg|color}--{name}--alpha-3">
+<div class="{bg|color}--{name}--alpha-4">
+<div class="{bg|color}--{name}--alpha-5">
+```
+
+### Flex
+```html
+<div class="flex">
+<div class="flex row">
+<div class="flex col">
+<div class="flex column">
+
+<div class="flex center">
+    <!--
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    -->
 </div>
-<div class="color--warning">
-    Maybe don't do that.
-</div>
-<div class="color--error">
-    Definetly don't do that.
-</div>
+
+<div class="flex space-around">
+<div class="flex space-between">
+<div class="flex space-evenly">
 ```
 
 ### Grid
