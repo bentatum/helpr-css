@@ -13,15 +13,15 @@ It's a set of helpful css classes for layout, spacing, colors, etc.
 ## Setup (fast)
 
 ```
-<link rel="stylesheet" href="https://unpkg.com/helpr-css@2/dist/default.min.css">
+<link rel="stylesheet" href="https://unpkg.com/helpr-css@~2/dist/default.min.css">
 ```
 
 ## Setup (advanced)
 
 ```
-<link rel="stylesheet" href="https://unpkg.com/helpr-css@2/dist/color.min.css">
-<link rel="stylesheet" href="https://unpkg.com/helpr-css@2/dist/flex.min.css">
-<link rel="stylesheet" href="https://unpkg.com/helpr-css@2/dist/grid.min.css">
+<link rel="stylesheet" href="https://unpkg.com/helpr-css@~2/dist/color.min.css">
+<link rel="stylesheet" href="https://unpkg.com/helpr-css@~2/dist/flex.min.css">
+<link rel="stylesheet" href="https://unpkg.com/helpr-css@~2/dist/grid.min.css">
 ```
 
 ## Docs
